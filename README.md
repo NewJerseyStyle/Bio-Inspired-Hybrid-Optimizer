@@ -12,6 +12,36 @@ We explored various hybrid optimization strategies (as showing in the [Jupyter N
 | **Limited Perturbations** | 0.9132 | Reduced parameters improved stability |
 | **Multi-scale mutations (Final)** | 0.9181 | Multi-scale mutations + within-life learning = stable convergence |
 
+> ![](__results___4_2.png)
+> ```
+> ======================================================================
+> Final Results Summary
+> ======================================================================
+> Bio-Hybrid-Fast (pop_size=10, sgd_steps=150, generations=50):
+>   Final Test Accuracy: 0.9042
+>   Best Test Accuracy: 0.9042
+>   Total Training Time: 334.7s
+>   Total Samples: 9.60M
+>   Final Sigma Value: 0.003847
+>   Sample Efficiency: 0.0942 acc/M
+> 
+> Bio-Hybrid-Balanced (pop_size=15, sgd_steps=200, generations=40):
+>   Final Test Accuracy: 0.9181
+>   Best Test Accuracy: 0.9181
+>   Total Training Time: 525.9s
+>   Total Samples: 15.36M
+>   Final Sigma Value: 0.006426
+>   Sample Efficiency: 0.0598 acc/M
+> 
+> Bio-Hybrid-Deep (pop_size=20, sgd_steps=250, generations=30):
+>   Final Test Accuracy: 0.9106
+>   Best Test Accuracy: 0.9113
+>   Total Training Time: 647.4s
+>   Total Samples: 19.20M
+>   Final Sigma Value: 0.010732
+>   Sample Efficiency: 0.0474 acc/M
+> ```
+
 ### 📊 What We Learned
 
 1. **Catastrophic Forgetting is Real**: Grouping individual optimizers in parallel destroys learned knowledge
@@ -36,7 +66,7 @@ pip install numpy tensorflow matplotlib
 ### Basic Usage
 
 ```python
-from last_cell import BioInspiredHybridOptimizer, MLP
+from HybridOptimizer import BioInspiredHybridOptimizer, MLP
 from tensorflow.keras.datasets import mnist
 
 # Load data
